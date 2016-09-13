@@ -17,7 +17,7 @@ $cubic-bezier:cubic-bezier(.75,.75,.25,.50);
 $bezier: $cubic-bezier;
 
 $offset: 187;
-$duration: 5s;
+$duration: 4s;
 
 %round{ border-radius: 50%; }
 %rounded{ border-radius: $border-radius; }
