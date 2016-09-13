@@ -5,4 +5,6 @@ angular.module('notesweb')
 		var self = this;
 		self.hello = 'hello';
 
+		$scope.spinner = false;
+
 	}]);

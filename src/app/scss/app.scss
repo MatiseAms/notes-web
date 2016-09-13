@@ -21,20 +21,25 @@ body{ background-color: rgba($emerald, .25); }
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
   #leftBar{ position: absolute; left: 0px; top: 0px; height: 100%; width: calc(100% - 132px); background: yellow; padding-top: 64px; }
   #rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 64px;
-    .logoHolder{ -webkit-box-shadow: 0 0 1px #000; width: 100px; height: 100px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; }
-    .spinner{ animation: rotator $duration linear infinite; margin-top: -16px; margin-left: -16px; position: relative; width: 132px; height: 132px; }
-    .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite, }
+    .logoHolder{ -webkit-box-shadow: 0 0 1px color(emerald); width: 100px; height: 100px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; }
+    .spinner{ animation: rotator $duration linear infinite; margin-top: -16px; margin-left: -16px; position: relative; width: 132px; height: 132px;
+      .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0;
+        &.active{ stroke-width: 3; }
+      }
+    }
   }
 }
 
 //maximize epicness
 @keyframes rotator{
   0%{ transform: rotate(0deg); }
-  100%{ transform: rotate(270deg); }
+  100%{ transform: rotate(360deg); }
 }
 
 @keyframes dash {
- 0%{ stroke-dashoffset: $offset; }
- 50%{ stroke-dashoffset: $offset/4; transform:rotate(135deg); }
- 100%{ stroke-dashoffset: $offset; transform:rotate(450deg); }
+ 0%{ stroke-dashoffset: $offset/2; transform:rotate(0deg); }
+ 25%{ stroke-dashoffset: $offset/4; transform:rotate(135deg); }
+ 50%{ stroke-dashoffset: $offset; transform:rotate(360deg); }
+ 75%{ stroke-dashoffset: $offset/3; transform:rotate(495deg); }
+ 100%{ stroke-dashoffset: $offset/2; transform:rotate(720deg); }
 }
