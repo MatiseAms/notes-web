@@ -6,5 +6,8 @@ angular.module('notesweb')
 		self.hello = 'hello';
 
 		$scope.spinner = false;
+    setTimeout(function(){
+      $scope.spinner = true; 
+    },1000);
 
 	}]);
