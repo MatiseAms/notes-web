@@ -17,6 +17,8 @@
 //tims front-end magie kijk en huiver :)
 body{ background-color: rgba($emerald, .25); }
 
+#home{ width: 900px; height: 1080px; overflow: hidden; background: black; }
+
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
   #leftBar{ position: absolute; left: 0px; top: 0px; height: 100%; width: calc(100% - 132px); background: yellow; padding-top: 64px; }
