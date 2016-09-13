@@ -1,10 +1,12 @@
 $colors:(
-	"dark": #111,
-	"light": #FFF
+	"dark": #000,
+	"light": #FFF,
+	"emerald": #2ddfbb
 );
 
 $dark: color(dark);
 $light: color(light);
+$emerald: color(emerald);
 
 
 $social-colors: (

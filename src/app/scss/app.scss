@@ -14,7 +14,10 @@
   "typography",
   "slick";
 
+//tims front-end magie kijk en huiver :)
+body{ background-color: $emerald; }
 
-body {
-  background-color: fuchsia;
+//notificationCenter
+#notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute; background: blue; padding-top: 64px;
+  #leftBar{ position: absolute; left: 0px; top: 0px; height: 100%; width: calc(100% - 132px); background: yellow; }
 }
