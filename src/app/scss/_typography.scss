@@ -9,7 +9,7 @@ $main-font: "CircularStd";
 $main-font-name: "CircularStd-";
 $main-font-family: #{$main-font},sans-serif;
 // include main font
-//@include font-list($main-font,$main-font-name,$main-font-weights,normal);
+@include font-list($main-font,$main-font-name,$main-font-weights,normal);
 
 
 $social-font:"Social";
