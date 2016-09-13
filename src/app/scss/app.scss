@@ -43,7 +43,7 @@ body{ background-color: transparent; background-image: url('../img/gradient.png'
     }
   }
   #rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 44px;
-   .logoHolder{ width: 80px; height: 80px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; margin-top: 0px; transform: scale(0); transition: .3s $bezier;
+   .logoHolder{ width: 80px; height: 80px; border-radius: 50px; background: url(../img/logo-groen.png) no-repeat center center; margin: 16px; margin-top: 0px; transform: scale(0); transition: .3s $bezier;  background-size: contain;
      &.active{ transform: scale(1); }
      .spinner1{ animation: rotator $duration linear infinite; width: 100px; height: 100px; position: absolute; left: -10px; top: -10px;
        .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
