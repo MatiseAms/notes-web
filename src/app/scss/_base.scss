@@ -17,7 +17,7 @@ $cubic-bezier:cubic-bezier(.75,.75,.25,.50);
 $bezier: $cubic-bezier;
 
 $offset: 187;
-$duration: 1.4s;
+$duration: 5s;
 
 %round{ border-radius: 50%; }
 %rounded{ border-radius: $border-radius; }
@@ -41,7 +41,7 @@ hr{ width: 100%; height: 1px; clear: both; background: color(dark,.25); color: c
 a{ text-decoration: none; color: inherit; }
 
 *{ -webkit-appearance: none; outline: none;outline: none; border-box: border-box; -webkit-overflow-scrolling: touch;
-//	 -webkit-font-smoothing: antialiased;
+	 -webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
   &:focus{ outline: none; }
