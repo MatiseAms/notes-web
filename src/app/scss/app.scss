@@ -15,7 +15,9 @@
   "slick";
 
 //tims front-end magie kijk en huiver :)
-// body{ background-color: rgba($emerald, .25); }
+body{ //background-color: rgba($emerald, .25);
+  background-image: linear-gradient(to left bottom,color(dark,1) 0%, color(dark,0) 50%);
+}
 
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
