@@ -53,6 +53,7 @@ body{ background-color: transparent; background-image: url('../img/gradient.png'
        .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration 3s ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
        }
      }
+     .spinner2,.spinner3{ display: none; }
      &.active{
        .spinner1 .path{ stroke-width: 3; }
        .spinner2 .path{ stroke-width: 2; }
