@@ -5,7 +5,16 @@ angular.module('notesweb')
 		var self = this;
 		self.hello = 'hello';
 
-		ProgrammingService.now();
+		angular.extend($scope,{
+			nowPlaying: {}
+		});
+
+		ProgrammingService.now().then(function(data){
+			$scope.nowPlaying = data;
+			console.log(data.data);
+		},function(error){
+
+		});
 
 		$scope.spinner = false;
     setTimeout(function(){
