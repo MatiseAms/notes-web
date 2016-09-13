@@ -1,9 +1,11 @@
 angular.module('notesweb')
-	.controller('HomeController', ['$scope',function($scope) {
+	.controller('HomeController', ['$scope','ProgrammingService', function($scope,ProgrammingService) {
 		'use strict';
 
 		var self = this;
 		self.hello = 'hello';
+
+		ProgrammingService.now();
 
 		$scope.spinner = false;
     setTimeout(function(){
