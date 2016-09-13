@@ -1,7 +1,5 @@
 angular.module('notesweb', [
-		'ui.router',
-		'angulartics',
-	  'angulartics.google.analytics'
+		'ui.router'
 	])
 	.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 		'use strict';
