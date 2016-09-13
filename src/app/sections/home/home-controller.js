@@ -1,5 +1,5 @@
 angular.module('notesweb')
-	.controller('HomeController', [function() {
+	.controller('HomeController', ['$scope',function($scope) {
 		'use strict';
 
 		var self = this;
@@ -7,7 +7,8 @@ angular.module('notesweb')
 
 		$scope.spinner = false;
     setTimeout(function(){
-      $scope.spinner = true; 
+      $scope.spinner = true;
+      $scope.$apply();
     },1000);
 
 	}]);
