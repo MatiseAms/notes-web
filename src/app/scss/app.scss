@@ -21,9 +21,9 @@ body{ background-color: rgba($emerald, .25); }
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
   #leftBar{ position: absolute; left: 0px; top: 0px; height: 100%; width: calc(100% - 132px); background: yellow; padding-top: 64px; }
   #rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 64px;
-    .logoHolder{ width: 100px; height: 100px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; }
-    .spinner{ margin-top: -16px; margin-left: -16px; position: relative; width: 132px; height: 132px; }
-    .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $dark; animation: dash $duration ease-in-out infinite, }
+    .logoHolder{ -webkit-box-shadow: 0 0 1px #000; width: 100px; height: 100px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; }
+    .spinner{ animation: rotator $duration linear infinite; margin-top: -16px; margin-left: -16px; position: relative; width: 132px; height: 132px; }
+    .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite, }
   }
 }
 
