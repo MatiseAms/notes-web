@@ -8,7 +8,6 @@ angular.module('notesweb')
       var deferObj = $q.defer();
       
       $http.get('http://api.notes.matise.nl/programming/now').then(function(data){
-        console.log(data);
         deferObj.resolve(data);
       },function(error){
         deferObj.reject(error);
