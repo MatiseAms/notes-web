@@ -1,0 +1,20 @@
+// foundation
+@import
+  "global",
+  "settings",
+  "foundation";
+
+// main styles
+@import
+  "functions",
+  "legacy",
+  "mixins",
+  "colors",
+  "base",
+  "typography",
+  "slick";
+
+
+body {
+  background-color: fuchsia;
+}

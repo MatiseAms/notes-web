@@ -1,4 +1,10 @@
 {
-	"name": "notesweb",
-	"dependencies": {}
+  "name": "notesweb",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-ui-router": "^0.3.1",
+    "foundation-sites": "^6.2.3",
+    "modernizr": "2.8.3",
+    "angulartics-google-analytics": "^0.2.1"
+  }
 }
