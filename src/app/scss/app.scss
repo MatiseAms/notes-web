@@ -41,13 +41,22 @@ body{ background-color: transparent; background-image: url('../img/gradient.png'
   #rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 44px;
    .logoHolder{ width: 80px; height: 80px; border-radius: 50px; background: $emerald url(../img/icon.svg) no-repeat center center; margin: 16px; margin-top: 0px; transform: scale(0); transition: .3s $bezier;
      &.active{ transform: scale(1); }
-     .spinner{ animation: rotator $duration linear infinite; margin-top: -10px; margin-left: -10px; position: relative; width: 100px; height: 100px;
+     .spinner1{ animation: rotator $duration linear infinite; width: 100px; height: 100px; position: absolute; left: -10px; top: -10px;
        .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
        }
-
+     }
+     .spinner2{ animation: rotator $duration 3s linear infinite; top: -20px; left: -20px; position: relative; width: 120px; height: 120px; position: absolute; opacity: .25;
+       .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration 2s ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
+       }
+     }
+     .spinner3{ animation: rotator $duration 2s linear infinite; top: -30px; left: -30px; position: relative; width: 140px; height: 140px; position: absolute; opacity: .05;
+       .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration 3s ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
+       }
      }
      &.active{
-       .spinner .path{ stroke-width: 3; }
+       .spinner1 .path{ stroke-width: 3; }
+       .spinner2 .path{ stroke-width: 2; }
+       .spinner3 .path{ stroke-width: 1; }
      }
    }
  }
