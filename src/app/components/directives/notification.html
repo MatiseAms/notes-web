@@ -1,5 +1,14 @@
-<div class="row">
+<div class="row" ng-show="notification=='notification'">
   <div class="modal black needsAfter" ng-controller="notifactionDirectiveController as notificationDirCtrl">
     <p>New song detected, open your app!</p>
   </div>
 </div>
+
+<div class="row" ng-show="notification=='userScore'">
+   <div class="modal black hasProfile">
+     <div class="profile" style="background-image: url(http://files.parsetfss.com/a67f47ef-df5d-431a-a714-031d06b5a08f/tfss-6299ed25-e81b-4c3b-8a37-bc346579b851-seb.jpg);"></div><p>120 total</p>
+   </div>
+   <div class="modal white needsAfter">
+     <p>+ 50 points</p>
+   </div>
+ </div>

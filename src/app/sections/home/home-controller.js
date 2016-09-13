@@ -11,7 +11,6 @@ angular.module('notesweb')
 
 		ProgrammingService.now().then(function(data){
 			$scope.nowPlaying = data;
-			console.log(data.data);
 		},function(error){
 
 		});

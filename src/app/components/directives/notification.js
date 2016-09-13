@@ -4,6 +4,7 @@ angular.module('notesweb')
 			restrict: 'E',
 			templateUrl: 'components/directives/notification.html',
 			scope: {
+        notification: '@',
 				item: '='
 			},
 			link: function($scope, $elem, $attr) {
