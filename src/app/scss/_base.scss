@@ -16,6 +16,9 @@ $space: 20px;
 $cubic-bezier:cubic-bezier(.75,.75,.25,.50);
 $bezier: $cubic-bezier;
 
+$offset: 187;
+$duration: 1.4s;
+
 %round{ border-radius: 50%; }
 %rounded{ border-radius: $border-radius; }
 %midY{ transform: translateY(-50%); position: absolute; top: 50%; }
