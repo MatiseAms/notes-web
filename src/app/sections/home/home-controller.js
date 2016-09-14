@@ -22,14 +22,14 @@ angular.module('notesweb')
 		$timeout(function(){
 			$scope.showIntro = false;
 			$scope.$applyAsync();
-		},2000);
+		},3000);
 
 		$timeout(function(){
 			$scope.microfonePopped = true;
 			$scope.notifications.unshift({type: 'notification','text':'Hi there, I\'m listening!'});
 			$scope.$applyAsync();
-		},4000);
-		self.displaySpinner(4500,true);
+		},5000);
+		self.displaySpinner(5500,true);
 
 		$timeout(function(){
 			ProgrammingService.now().then(function(data){
