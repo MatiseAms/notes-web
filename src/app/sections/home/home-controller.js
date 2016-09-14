@@ -16,14 +16,19 @@ angular.module('notesweb')
 			notifications: [],
 			spinning: false,
 			microfonePopped: false,
+			showIntro:  true
 		});
+
+		$timeout(function(){
+			$scope.showIntro = false;
+			$scope.$applyAsync();
+		},2000);
 
 		$timeout(function(){
 			$scope.microfonePopped = true;
 			$scope.notifications.unshift({type: 'notification','text':'Hi there, I\'m listening!'});
 			$scope.$applyAsync();
 		},4000);
-
 		self.displaySpinner(4500,true);
 
 		$timeout(function(){
