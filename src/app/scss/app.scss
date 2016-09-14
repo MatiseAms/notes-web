@@ -28,11 +28,11 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
-  #leftBar{ overflow: hidden; position: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 45px; transition: .2s;
+  #leftBar{ overflow: hidden; pfosition: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 45px; transition: .2s;
     &.withMicrofone{ right: 132px; }
     notification{ height: 60px; margin: 10px 0px; float: right;
-      .modal{ margin: 0px 20px 0px 0px; height: 100%; width: auto; border-radius: 30px; padding: 0px 30px; position: relative; display: inline-block; float: right;
-        p{ display: block; line-height: rem(18); position: relative; transform: translateY(-50%); top: 50%; }
+      .modal{ margin: 0px 20px 0px 0px; height: 100%; min-height: 60px; width: auto; border-radius: 30px; padding: 20px 30px; position: relative; display: inline-block; float: right;
+        p{ display: block; line-height: rem(20); position: relative; }
         .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px; }
         &.black{ background-color: $dark; color: $light;
           &.needsAfter{ &:after{ background-color: $dark; } }
@@ -53,7 +53,7 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 
 
 //icon
-#rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 44px;
+#rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 54px;
  .logoHolder{ width: 80px; height: 80px; border-radius: 40px; background: url(../img/logo-groen.png) no-repeat center center; margin: 16px; margin-top: 0px; transform: scale(0); transform-origin: 50% 50%; transition: .3s $bezier;  background-size: contain;
    &.active{ transform: scale(1); }
    &.active{transform: scale(1); }
@@ -83,35 +83,41 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 }
 
 //koraokeTakeOver
-#koraokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s;
+#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s;
   //step01
-  .step01{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; opacity: 0;
+  .step01{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; opacity: 1;
     &.active{ opacity: 1; }
-    .logo{ position: absolute; width: 721px; height: 389px; transform-origin: 0 0; background: url(../img/logo.png) no-repeat center center; background-size: cover; left: 50%; top: 50%; margin-top: 0px; transform: translate(-50%, -50%) scale(.5); animation: logoEpic $duration ease-out forwards 1; }
+    .logo{ position: absolute; width: 721px; height: 389px; transform-origin: 0 0; background: url(../img/logo.png) no-repeat center center; background-size: cover; left: 50%; top: 50%; margin-top: 0px; transform: translate(-50%, -50%) scale(.5); animation: logoEpic 2s ease-out forwards 1; }
   }
-  .logoHolder{ background: url(../img/logo-fill.png) no-repeat center center; background-size: contain; }
+  #userProfile{ position: relative; margin-top: 54px;
+    .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px;
+      &:after{ display: block; position: absolute; content: ''; width: 60px; height: 60px; top: 0px; left: 0px; background: $black; z-index: -1; top: -4px; left: -4px; border-radius: 30px; }
+    }
+    p{ line-height: 54px; padding-left: 80px; }
+  }
+  .logoHolder{ background: url(../img/logo-fill.png) no-repeat center center; background-size: contain; transform: scale(1) }
   .spinner1{ display: none; }
   //step02
-  .step02{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6;  opacity: 0;
-    #userProfile{ position: relative; margin-top: 54px;
-      .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px;
-        &:after{ display: block; position: absolute; content: ''; width: 60px; height: 60px; top: 0px; left: 0px; background: $black; z-index: -1; top: -4px; left: -4px; border-radius: 30px; }
-      }
-      p{ line-height: 54px; padding-left: 80px; }
-    }
-    h2{
-      .counter{ top: 18px; position: relative; display: inline-block; width: 60px; height: 80px; overflow: hidden;
-        &:before{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: -100px; left: -20px; box-shadow: 0px 2px 20px 10px $emerald; }
-        &:after{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: 79px; left: -20px; box-shadow: 0px -5px 10px 5px $emerald; }
-        span{ width: 100%; display: block; line-height: 50px; text-align: center; }
-        .spanContainer{ margin-top: 18px; animation: counterAnim 6s ease-out forwards 1; animation-delay: 2s;
-          &.start{ animation: counterAnim 6s ease-out forwards 1; }
-        }
-      }
-    }
-  }
-  //step03
-  .step03{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; background: gray; }
+  //.step02{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6;  opacity: 1;
+  //  #userProfile{ position: relative; margin-top: 54px;
+  //    .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px;
+  //      &:after{ display: block; position: absolute; content: ''; width: 60px; height: 60px; top: 0px; left: 0px; background: $black; z-index: -1; top: -4px; left: -4px; border-radius: 30px; }
+  //    }
+  //    p{ line-height: 54px; padding-left: 80px; }
+  //  }
+  //  h2{
+  //    .counter{ top: 18px; position: relative; display: inline-block; width: 60px; height: 80px; overflow: hidden;
+  //      &:before{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: -100px; left: -20px; box-shadow: 0px 2px 20px 10px $emerald; }
+  //      &:after{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: 79px; left: -20px; box-shadow: 0px -5px 10px 5px $emerald; }
+  //      span{ width: 100%; display: block; line-height: 50px; text-align: center; }
+  //      .spanContainer{ margin-top: 18px; animation: counterAnim 6s ease-out forwards 1; animation-delay: 2s;
+  //        &.start{ animation: counterAnim 6s ease-out forwards 1; }
+  //      }
+  //    }
+  //  }
+  //}
+  ////step03
+  //.step03{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; background: gray; opacity: 0; }
 }
 
 //maximize epicness
@@ -121,8 +127,9 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 }
 
 @keyframes logoEpic{
-  0%{ transform: scale(.4) translate(-50%, -50%); }
-  100%{ transform: scale(1) translate(-50%, -50%); }
+  0%{ transform: scale(.4) translate(-50%, -50%); opacity: 1; }
+  80%{ transform: scale(1) translate(-50%, -50%); opacity: 1; }
+  100%{ transform: scale(.8) translate(-50%, -50%); opacity: 0; }
 }
 
 @keyframes counterAnim{
