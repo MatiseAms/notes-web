@@ -28,9 +28,10 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
-  #leftBar{ overflow: hidden; pfosition: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 45px; transition: .2s;
+  #leftBar{ overflow: hidden; pfosition: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 30px; transition: .2s;
     &.withMicrofone{ right: 132px; }
-    notification{ height: 60px; margin: 10px 0px; float: right;
+    notification{ height: 60px; margin: 15px 0px; float: right;
+      .row{ margin: 10px 0px 0px; }
       .modal{ margin: 0px 20px 0px 0px; height: 100%; min-height: 60px; width: auto; border-radius: 30px; padding: 20px 30px; position: relative; display: inline-block; float: right;
         p{ display: block; line-height: rem(20); position: relative; }
         .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px; }
