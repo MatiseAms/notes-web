@@ -1,7 +1,7 @@
 <section id="home">
   <!-- notification center -->
   <div id="notificationCenter">
-    <div id="leftBar" ng-class="{'withMicrofone': microfonePopped, 'karaokeMode': karaokeMode}">
+    <div id="" ng-class="{'withMicrofone': microfonePopped, 'karaokeMode': karaokeMode}">
       <notification ng-repeat="(key, item) in notifications | limitTo:3" notification="{{item.type}}" item="item" class="notification-{{key}}"></notification>
     </div>
     <div id="rightBar">
