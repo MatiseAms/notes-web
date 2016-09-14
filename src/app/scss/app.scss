@@ -83,7 +83,8 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 }
 
 //koraokeTakeOver
-#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s;
+#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; opacity: 1; transition: .4s;
+  &.hideIt{ opacity: 0; }
   //step01
   .step01{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; opacity: 1;
     &.active{ opacity: 1; }
