@@ -78,14 +78,14 @@ angular.module('notesweb')
 		$timeout(function(){
 			$scope.showIntro = false;
 			$scope.$applyAsync();
-		},3000);
+		},6000);
 
 		$timeout(function(){
 			$scope.microfonePopped = true;
 			$scope.notifications.unshift({type: 'notification','text':'Hi there, I\'m listening!'});
 			$scope.$applyAsync();
-		},5000);
-		self.displaySpinner(5500,true);
+		},7000);
+		self.displaySpinner(7500,true);
 
 		$timeout(function(){
 			self.checkSong();
