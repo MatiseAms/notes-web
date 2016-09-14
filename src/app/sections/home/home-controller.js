@@ -16,7 +16,7 @@ angular.module('notesweb')
 			ProgrammingService.now().then(function(data){
 				if(data.data.error){
 					if(!$scope.lastMessageCommercial){
-						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
+						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :( need an awesome app or website? Visit www.matise.nl!'});
 						$scope.lastMessageCommercial = true;
 						$timeout(function(){self.checkSong();},500);
 					}
