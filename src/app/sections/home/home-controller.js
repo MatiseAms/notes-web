@@ -18,36 +18,50 @@ angular.module('notesweb')
 					if(!$scope.lastMessageCommercial){
 						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
 						$scope.lastMessageCommercial = true;
-						$timeout(function(){self.checkSong();},500);
 					}
+					$timeout(function(){self.checkSong();},500);
 				}else{
 					if($scope.nowPlaying!==data.data){
-						$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun'});
-						self.displaySpinner(1000,false);
 						$scope.lastMessageCommercial = false;
 						$scope.nowPlaying = data.data;
+
 						console.log($scope.nowPlaying);
+						if($scope.nowPlaying[10]){
+							console.log($scope.nowPlaying[10].lyrics.lyrics_body);
+						}
+
+						$timeout(function(){
+							$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun!'});
+							self.displaySpinner(1000,false);
+
+							// send push to phone
+
+						},5000);
 						// check at the end of the song
-						var songTimeout = (data.data[6]*1000)-2000;
+						var songTimeout = data.data[6]*1000;
 						console.log('checking song in '+data.data[6]+' sec, '+songTimeout+ 'ms');
 						if(songTimeout<0){
 							self.checkSong();
 						}else{
+							self.displaySpinner(songTimeout-2000,true);
 							$timeout(function(){
 								$scope.karaokeMode = false;
 								$scope.$applyAsync();
 								self.checkSong();
-							},songTimeout);
+							},songTimeout+2000);
 						}
-
-						// send push to phone
-
+					}else{
+						$timeout(function(){
+							self.checkSong();
+						},1000);
 					}
 
 				}
 			},function(error){
-				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds'});
-				self.displaySpinner(1000,false);
+				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds!'});
+				$timeout(function(){
+					self.checkSong();
+				},1500);
 			});
 		};
 

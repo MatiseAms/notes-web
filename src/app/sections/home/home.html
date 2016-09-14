@@ -2,7 +2,7 @@
   <!-- notification center -->
   <div id="notificationCenter">
     <div id="leftBar" ng-class="{'withMicrofone': microfonePopped}">
-      <notification ng-repeat="(key, item) in notifications" notification="{{item.type}}" item="item" class="notification-{{key}}"></notification>
+      <notification ng-repeat="(key, item) in notifications | limitTo:3" notification="{{item.type}}" item="item" class="notification-{{key}}"></notification>
     </div>
     <div id="rightBar">
       <div class="logoHolder" ng-class="{'active': microfonePopped, 'spinning': spinning}" >
