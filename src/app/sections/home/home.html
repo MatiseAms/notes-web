@@ -9,18 +9,44 @@
         <svg class="spinner1" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         </svg>
-        <svg class="spinner2" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-          <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-        </svg>
-        <svg class="spinner3" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-          <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-        </svg>
       </div>
     </div>
   </div>
 
   <!-- karaoketakeover -->
-  <div id="koraokeTakeOver" ng-hide="true">
-    Niet te verwarren met Hete Huub
+  <div id="koraokeTakeOver" ng-hide="false">
+    <div class="step01">
+      <div class="logo"></div>
+    </div>
+    <div class="step02">
+      <div id="userProfile">
+        <div class="row">
+          <div class="profile" style="background-image: url(http://files.parsetfss.com/a67f47ef-df5d-431a-a714-031d06b5a08f/tfss-6299ed25-e81b-4c3b-8a37-bc346579b851-seb.jpg);"></div><p>Sil is singing [Songname] by [Artist]</p>
+        </div>
+      </div>
+      <div class="maximizer">
+        <div class="content">
+          <h2>[User] is digging the song <br/>[Songname] by [Artist]</h2>
+          <h2>That’s why he is starting a sing-a-long! <br/>Get ready in
+            <div class="counter">
+              <div class="spanContainer">
+                <span>5</span>
+                <span>4</span>
+                <span>3</span>
+                <span>2</span>
+                <span>1</span>
+              </div>
+            </div>
+          </h2>
+        </div>
+      </div>
+    </div>
+    <div id="rightBar">
+      <div class="logoHolder" ng-class="{'active': spinner}" >
+        <svg class="spinner1" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </div>
+    </div>
   </div>
 </section>
