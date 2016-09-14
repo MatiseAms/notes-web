@@ -83,8 +83,8 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
  }
 }
 
-//koraokeTakeOver
-#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 1;
+//karaokeTakeOver
+#introTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 1;
   #rightBar{ right: 120px; }
   &.hideIt{ opacity: 0; }
   //step01
@@ -92,41 +92,67 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
     &.active{ opacity: 1; }
     .logo{ position: absolute; width: 721px; height: 389px; transform-origin: 0 0; background: url(../img/logo.png) no-repeat center center; background-size: cover; left: 50%; top: 50%; margin-top: 0px; transform: translate(-50%, -50%) scale(.5); animation: logoEpic 2s ease-out forwards 1; }
   }
-  #userProfile{ position: relative; margin-top: 54px;
+  .logoHolder{ background: url(../img/logo-fill.png) no-repeat center center; background-size: contain; transform: scale(1) }
+  .spinner1{ display: none; }
+}
+
+//karaokeTakeOver
+#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 1;
+  #rightBar{ right: 120px; }
+  &.karaokeMode{ animation: changeBG 1s ease-out forwards 1; animation-delay: 3.5s;
+    #userProfile{
+      p{ animation: changeColor 1s ease-out forwards 1; animation-delay: 3.5s; }
+    }
+  }
+  //step01
+  .step01{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; opacity: 1;
+    &.active{ opacity: 1; }
+    .logo{ position: absolute; width: 721px; height: 389px; transform-origin: 0 0; background: url(../img/logo.png) no-repeat center center; background-size: cover; left: 50%; top: 50%; margin-top: 0px; transform: translate(-50%, -50%) scale(.5); animation: logoEpic 2s ease-out forwards 1; }
+  }
+  #userProfile{ position: relative; margin-top: -540px; animation: showMode 2s ease-out forwards 1;
     .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px;
       &:after{ display: block; position: absolute; content: ''; width: 60px; height: 60px; top: 0px; left: 0px; background: $black; z-index: -1; top: -4px; left: -4px; border-radius: 30px; }
     }
-    p{ line-height: 54px; padding-left: 80px; }
+    p{ line-height: 54px; padding-left: 80px; transition: 1s; transition-delay: 2s; color: black; font-size: 1rem; }
   }
   .logoHolder{ background: url(../img/logo-fill.png) no-repeat center center; background-size: contain; transform: scale(1) }
   .spinner1{ display: none; }
-  //step02
-  //.step02{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6;  opacity: 1;
-  //  #userProfile{ position: relative; margin-top: 54px;
-  //    .profile{ display: block; width: 52px; height: 52px; border-radius: 26px; background-repeat: no-repeat; background-position: center center; background-size: cover; position: absolute; left: 4px; top: 4px;
-  //      &:after{ display: block; position: absolute; content: ''; width: 60px; height: 60px; top: 0px; left: 0px; background: $black; z-index: -1; top: -4px; left: -4px; border-radius: 30px; }
-  //    }
-  //    p{ line-height: 54px; padding-left: 80px; }
-  //  }
-  //  h2{
-  //    .counter{ top: 18px; position: relative; display: inline-block; width: 60px; height: 80px; overflow: hidden;
-  //      &:before{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: -100px; left: -20px; box-shadow: 0px 2px 20px 10px $emerald; }
-  //      &:after{ width: 100px; height: 100px; content: ''; display: block; position: absolute; background: $emerald; z-index: 2; top: 79px; left: -20px; box-shadow: 0px -5px 10px 5px $emerald; }
-  //      span{ width: 100%; display: block; line-height: 50px; text-align: center; }
-  //      .spanContainer{ margin-top: 18px; animation: counterAnim 6s ease-out forwards 1; animation-delay: 2s;
-  //        &.start{ animation: counterAnim 6s ease-out forwards 1; }
-  //      }
-  //    }
-  //  }
-  //}
-  ////step03
-  //.step03{ position: absolute; height: 100%; width: 80%; left: 10%; top: 0px; z-index: 6; background: gray; opacity: 0; }
+  .song{ width: 80%; height: 540px; position: fixed; left: 10%; border: 1px solid red; z-index: 7; top: 20%; opacity: 0; animation: showSong .5s ease forwards 1; animation-delay: 5s; overflow: hidden;
+    ul{ font-size: rem(50); line-height: rem(60); color: $white; padding-top: 240px; margin: 0px;
+      li{ white-space: nowrap; overflow: hidden; line-height: 60px; color: rgba($white, .75); position: relative; margin-right: 100%; display: inline-block; width: auto; transform-style: preserve-3d;
+        &.active{ color: rgba($white, 1);
+          &:before{ transform: translateX(0%); transition: 2s; }
+        }
+        &:before{ z-index: -1; width: 0px; content: ''; height: 10px; top: 28px; background-color: rgba($emerald, 1); width: 100%; transform: translate(-100%); position: absolute; }
+      }
+    }
+  }
 }
 
 //maximize epicness
 @keyframes rotator{
   0%{ transform: rotate(0deg); }
   100%{ transform: rotate(360deg); }
+}
+
+@keyframes changeBG{
+  0%{ background-color: rgba($emerald, 1); }
+  100%{ background-color: rgba(#101010, .75); }
+}
+
+@keyframes showSong{
+  0%{ opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+@keyframes changeColor{
+  0%{ color: $dark; }
+  100%{ color: $light; }
+}
+
+@keyframes showMode{
+  0%{ margin-top: -540px; }
+  100%{ margin-top: 54px; }
 }
 
 @keyframes logoEpic{

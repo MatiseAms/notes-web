@@ -14,7 +14,7 @@
   </div>
 
   <!-- karaoketakeover -->
-  <div id="karaokeTakeOver" ng-class="{'hideIt': !showIntro, 'karaokeMode': karaokeMode}">
+  <div id="introTakeOver" ng-class="{'hideIt': !showIntro}">
     <div id="rightBar">
       <div class="logoHolder" ng-class="{'active': spinner}" >
         <svg class="spinner1" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
@@ -23,35 +23,86 @@
       </div>
     </div>
     <div class="step01">
-      <div id="userProfile" ng-show="karaokeMode">
+      <div class="logo"></div>
+    </div>
+  </div>
+
+  <!-- karaoketakeover -->
+  <div id="karaokeTakeOver" ng-class="{'karaokeMode': karaokeMode}">
+    <div id="rightBar">
+      <div class="logoHolder" ng-class="{'active': spinner}" >
+        <svg class="spinner1" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+        </svg>
+      </div>
+    </div>
+    <div class="step01">
+      <div id="userProfile">
         <div class="row">
           <div class="profile" style="background-image: url(http://files.parsetfss.com/a67f47ef-df5d-431a-a714-031d06b5a08f/tfss-6299ed25-e81b-4c3b-8a37-bc346579b851-seb.jpg);"></div><p>Sil is singing [Songname] by [Artist]</p>
         </div>
       </div>
       <div class="logo"></div>
     </div>
-    <!-- <div class="step02">
-      <div id="userProfile">
-        <div class="row">
-          <div class="profile" style="background-image: url(http://files.parsetfss.com/a67f47ef-df5d-431a-a714-031d06b5a08f/tfss-6299ed25-e81b-4c3b-8a37-bc346579b851-seb.jpg);"></div><p>Sil is singing [Songname] by [Artist]</p>
-        </div>
-      </div>
+    <div class="song">
       <div class="maximizer">
-        <div class="content">
-          <h2>[User] is digging the song <br/>[Songname] by [Artist]</h2>
-          <h2>That’s why he is starting a sing-a-long! <br/>Get ready in
-            <div class="counter">
-              <div class="spanContainer">
-                <span>5</span>
-                <span>4</span>
-                <span>3</span>
-                <span>2</span>
-                <span>1</span>
-              </div>
-            </div>
-          </h2>
-        </div>
+        <ul>
+          <li class="active">Baby, I like your style</li>
+          <li>Grips on your waist</li>
+          <li>Front way, back way</li>
+          <li>You know that I don't play</li>
+          <li>Streets not safe</li>
+          <li>But I never run away</li>
+          <li>Even when I'm away</li>
+          <li>Oti, oti, there's never much love when we go OT</li>
+          <li>I pray to make it back in one piece</li>
+          <li>I pray, I pray</li>
+          <li>That's why I need a one dance</li>
+          <li>Got a Hennessy in my hand</li>
+          <li>One more time 'fore I go</li>
+          <li>Higher powers taking a hold on me</li>
+          <li>I need a one dance</li>
+          <li>Got a Hennessy in my hand</li>
+          <li>One more time 'fore I go</li>
+          <li>Higher powers taking a hold on me</li>
+          <li>Baby, I like your style</li>
+          <li>Strength and guidance</li>
+          <li>All that I'm wishing for my friends</li>
+          <li>Nobody makes it from my ends</li>
+          <li>I had to bust up the silence</li>
+          <li>You know you gotta stick by me</li>
+          <li>Soon as you see the text, reply me</li>
+          <li>I don't wanna spend time fighting</li>
+          <li>We've got no time</li>
+          <li>And that's why I need a one dance</li>
+          <li>Got a Hennessy in my hand</li>
+          <li>One more time 'fore I go</li>
+          <li>Higher powers taking a hold on me</li>
+          <li>I need a one dance</li>
+          <li>Got a Hennessy in my hand</li>
+          <li>One more time 'fore I go</li>
+          <li>Higher powers taking a hold on me</li>
+          <li>Got a pretty girl and she love me long time</li>
+          <li>Wine it, wine it, very long time</li>
+          <li>Oh, yeah, she steady on grindin'</li>
+          <li>Back up, back up, back up and wine it</li>
+          <li>Back up, back up and wine it</li>
+          <li>Back up, back up, back up and wine it</li>
+          <li>Oh, yeah, she steady on grindin'</li>
+          <li>Back up, back up and wine it, girl</li>
+          <li>Tell me, I need to know, where do you wanna go?</li>
+          <li>'Cause if you're down, I'll take it slow</li>
+          <li>Make you lose control</li>
+          <li>Where, where, where</li>
+          <li>Where, where, where, where</li>
+          <li>Oh, yeah, she steady on grindin'</li>
+          <li>Where, where, where</li>
+          <li>Back up, back up and wine it, girl</li>
+          <li>Where, where, where, where</li>
+          <li>'Cause if you're down</li>
+          <li>Back up, back up and</li>
+        </ul>
       </div>
-    </div> -->
+    </div>
   </div>
 </section>
