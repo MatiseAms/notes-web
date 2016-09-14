@@ -14,9 +14,11 @@ angular.module('notesweb')
 		angular.extend($scope,{
 			nowPlaying: {},
 			notifications: [],
+			lastMessageCommercial: false,
 			spinning: false,
 			microfonePopped: false,
-			showIntro:  true
+			showIntro:  true,
+			karaokeMode: false
 		});
 
 		$timeout(function(){
@@ -34,13 +36,18 @@ angular.module('notesweb')
 		$timeout(function(){
 			ProgrammingService.now().then(function(data){
 				if(data!==false){
-					$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
-					self.displaySpinner(1000,false);
+					if(!$scope.lastMessageCommercial){
+						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
+						$scope.lastMessageCommercial = true;
+					}
 				}else{
+					$scope.notifications.unshift({type: 'notification','text':''});
+					self.displaySpinner(1000,false);
+					$scope.lastMessageCommercial = false;
 					$scope.nowPlaying = data;
 				}
 			},function(error){
-				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, we will try again in a few seconds'});
+				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds'});
 				self.displaySpinner(1000,false);
 			});
 		},10000);
