@@ -1,8 +1,8 @@
 <section id="home">
   <!-- notification center -->
   <div id="notificationCenter">
-    <div id="leftBar" ng-class="{'withMicrofone': microfonePopped}">
-      <notification ng-repeat="(key, item) in notifications | limitTo:3" notification="{{item.type}}" item="item" class="notification-{{key}}"></notification>
+    <div id="leftBar" ng-class="{'withMicrofone': microfonePopped', karaokeMode': karaokeMode}">
+      <notification ng-repeat="(key, item) in notifications" notification="{{item.type}}" item="item" class="notification-{{key}}"></notification>
     </div>
     <div id="rightBar">
       <div class="logoHolder" ng-class="{'active': microfonePopped, 'spinning': spinning}" >
@@ -48,7 +48,7 @@
       <div class="maximizer">
         <ul>
           <li class="active">Baby, I like your style</li>
-          <li>Grips on your waist</li>
+          <li ng-class="{'active': active === true}" ng-click="active = !active">Grips on your waist</li>
           <li>Front way, back way</li>
           <li>You know that I don't play</li>
           <li>Streets not safe</li>
