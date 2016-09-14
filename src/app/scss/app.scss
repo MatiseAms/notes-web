@@ -32,7 +32,7 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
   #leftBar{ overflow: hidden; position: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 44px; transition: .2s;
     &.karaokeMode{ opacity: 0; }
     &.withMicrofone{ right: 112px; }
-    notification{ height: 60px; margin: 0px 0px 10px; float: right; transition: opacity .2s;
+    notification{ min-height: 60px; margin: 0px; float: right; transition: opacity .2s;
       &.notification-0{ opacity: 1; }
       &.notification-1{ opacity: .5; }
       &.notification-2{ opacity: .25;}
