@@ -10,6 +10,39 @@ angular.module('notesweb')
 				$scope.$applyAsync();
 			},delay);
 		};
+		self.checkSong  = function checkSong(){
+			self.displaySpinner(0,true);
+			ProgrammingService.now().then(function(data){
+				if(data.error){
+					if(!$scope.lastMessageCommercial){
+						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
+						$scope.lastMessageCommercial = true;
+						$timeout(function(){self.checkSong();},500);
+					}
+				}else{
+					if($scope.nowPlaying!==data){
+						$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun'});
+						self.displaySpinner(1000,false);
+						$scope.lastMessageCommercial = false;
+						$scope.nowPlaying = data;
+
+						// check at the end of the song
+						var songTimeout = (data.data[6]*1000)-2000;
+						console.log('checking song in '+data.data[6]+' sec, '+songTimeout+ 'ms');
+						// $timeout(function(){
+						// 	self.checkSong();
+						// },songTimeout);
+
+						// send push to phone
+
+					}
+
+				}
+			},function(error){
+				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds'});
+				self.displaySpinner(1000,false);
+			});
+		};
 
 		angular.extend($scope,{
 			nowPlaying: {},
@@ -34,24 +67,7 @@ angular.module('notesweb')
 		self.displaySpinner(5500,true);
 
 		$timeout(function(){
-			ProgrammingService.now().then(function(data){
-				if(data===false){
-					if(!$scope.lastMessageCommercial){
-						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
-						$scope.lastMessageCommercial = true;
-					}
-				}else{
-					$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun'});
-					self.displaySpinner(1000,false);
-					$scope.lastMessageCommercial = false;
-					$scope.nowPlaying = data;
-
-					// send push to phone
-				}
-			},function(error){
-				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds'});
-				self.displaySpinner(1000,false);
-			});
+			self.checkSong();
 		},10000);
 
 		PusherService.bind('karaoke', function(data) {
