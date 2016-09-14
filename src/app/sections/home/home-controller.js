@@ -1,5 +1,5 @@
 angular.module('notesweb')
-	.controller('HomeController', ['$scope','$timeout','ProgrammingService','PusherService', function($scope,$timeout,ProgrammingService,PusherService) {
+	.controller('HomeController', ['$scope','$timeout','$interval','ProgrammingService','PusherService', function($scope,$timeout,$interval,ProgrammingService,PusherService) {
 		'use strict';
 
 		var self = this;
@@ -102,6 +102,25 @@ angular.module('notesweb')
 			$scope.notifications.unshift({type: 'userScore',score: data.score, total: data.total, profilepicture: data.profilepicture});
 			$scope.$applyAsync();
     });
+
+    self.lyrics = function(){
+      var linesTotal = $('ul.lyrics').find('li').length;
+      var lineTime = 2000;
+      var i = 0;
+      var pushLine = function () {
+        i++;
+        $('ul.lyrics').attr('data-line',i);
+        $('ul.lyrics li').removeClass('active');
+        $('ul.lyrics li').eq(i).addClass('active');
+        if(i > linesTotal){
+          $interval.cancel();
+        }
+      };
+      $interval(pushLine, lineTime);
+    };
+    setTimeout(function(){
+      self.lyrics();
+    },3000);
 
 
 	}]);
