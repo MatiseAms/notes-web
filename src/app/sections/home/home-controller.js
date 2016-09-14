@@ -13,7 +13,7 @@ angular.module('notesweb')
 
 		ProgrammingService.now().then(function(data){
 			if(data!==false){
-				$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need a website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799 !'});
+				$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
 			}else{
 				$scope.nowPlaying = data;
 			}
@@ -22,7 +22,7 @@ angular.module('notesweb')
 		});
 
 		setTimeout(function(){
-			$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need a website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799 !'});
+			$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
 			$scope.$applyAsync();
 			// console.log($scope.notifications);
 		},8000);
