@@ -1,35 +1,44 @@
 angular.module('notesweb')
-	.controller('HomeController', ['$scope','ProgrammingService', function($scope,ProgrammingService) {
+	.controller('HomeController', ['$scope','$timeout','ProgrammingService', function($scope,$timeout,ProgrammingService) {
 		'use strict';
 
 		var self = this;
-		self.hello = 'hello';
+
+		self.displaySpinner = function displaySpinner(delay,show){
+			$timeout(function(){
+				$scope.spinning = show;
+				$scope.$applyAsync();
+			},delay);
+		};
 
 		angular.extend($scope,{
 			nowPlaying: {},
 			notifications: [],
-			spinner: false,
+			spinning: false,
+			microfonePopped: false,
 		});
 
-		ProgrammingService.now().then(function(data){
-			if(data!==false){
-				$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
-			}else{
-				$scope.nowPlaying = data;
-			}
-		},function(error){
-
-		});
-
-		setTimeout(function(){
-			$scope.notifications.push({type: 'notification','text':'Oh no commercials 😫, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
+		$timeout(function(){
+			$scope.microfonePopped = true;
 			$scope.$applyAsync();
-			// console.log($scope.notifications);
-		},8000);
+		},4000);
 
-		setTimeout(function(){
-			$scope.spinner = true;
-			$scope.$applyAsync();
-		},5000);
+		self.displaySpinner(4500,true);
+
+		$timeout(function(){
+			ProgrammingService.now().then(function(data){
+				if(data!==false){
+					$scope.notifications.push({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
+					self.displaySpinner(1000,false);
+				}else{
+					$scope.nowPlaying = data;
+				}
+			},function(error){
+				$scope.notifications.push({type: 'notification','text':'Oops something went wrong with the service, trying again in a few seconds'});
+				self.displaySpinner(1000,false);
+			});
+		},10000);
+
+
 
 	}]);

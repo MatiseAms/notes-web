@@ -1,11 +1,11 @@
 <section id="home">
   <!-- notification center -->
   <div id="notificationCenter">
-    <div id="leftBar" ng-class="{'withSpinner': spinner}">
+    <div id="leftBar" ng-class="{'withMicrofone': microfonePopped}">
       <notification ng-repeat="item in notifications" notification="{{item.type}}" item="item"></notification>
     </div>
     <div id="rightBar">
-      <div class="logoHolder" ng-class="{'active': spinner}" >
+      <div class="logoHolder" ng-class="{'active': microfonePopped, 'spinning': spinning}" >
         <svg class="spinner1" width="132px" height="132px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
           <circle class="path" fill="none" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
         </svg>

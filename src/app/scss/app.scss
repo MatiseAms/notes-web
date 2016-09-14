@@ -23,7 +23,7 @@ body{ background-color: transparent; background-image: url('../img/gradient.png'
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
   #leftBar{ overflow: hidden; position: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 45px; transition: .2s;
-    &.withSpinner{ right: 132px; }
+    &.withMicrofone{ right: 132px; }
     notification{ height: 60px; margin: 10px 0px; float: right;
       .modal{ margin: 0px 20px 0px 0px; height: 100%; width: auto; border-radius: 30px; padding: 0px 30px; position: relative; display: inline-block; float: right;
         p{ display: block; line-height: 58px; }
@@ -45,7 +45,11 @@ body{ background-color: transparent; background-image: url('../img/gradient.png'
   }
   #rightBar{ position: absolute; right: 0px; top: 0px; height: 100%; width: 132px; z-index: 2; padding-top: 44px;
    .logoHolder{ width: 80px; height: 80px; border-radius: 50px; background: url(../img/logo-groen.png) no-repeat center center; margin: 16px; margin-top: 0px; transform: scale(0); transition: .3s $bezier;  background-size: contain;
-     &.active{ transform: scale(1); }
+     &.active{transform: scale(1); }
+     &.spinning{
+       .spinner1,.spinner2,.spinner3{ opacity: 1; }
+     }
+     .spinner1,.spinner2,.spinner3{ opacity: 0; } 
      .spinner1{ animation: rotator $duration linear infinite; width: 100px; height: 100px; position: absolute; left: -10px; top: -10px;
        .path{ stroke-dasharray: $offset; stroke-dashoffset: 0; transform-origin: center; stroke: $light; animation: dash $duration ease-in-out infinite,rotator $duration*2 infinite; stroke-width: 0; transition: stroke-width 2s 1s;
        }
