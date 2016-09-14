@@ -20,6 +20,7 @@ angular.module('notesweb')
 
 		$timeout(function(){
 			$scope.microfonePopped = true;
+			$scope.notifications.unshift({type: 'notification','text':'Hi there, I\'m listening!'});
 			$scope.$applyAsync();
 		},4000);
 
@@ -28,13 +29,13 @@ angular.module('notesweb')
 		$timeout(function(){
 			ProgrammingService.now().then(function(data){
 				if(data!==false){
-					$scope.notifications.push({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
+					$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visite www.matise.nl or give us a call on +31 (0) 20 845 3799!'});
 					self.displaySpinner(1000,false);
 				}else{
 					$scope.nowPlaying = data;
 				}
 			},function(error){
-				$scope.notifications.push({type: 'notification','text':'Oops something went wrong with the service, trying again in a few seconds'});
+				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong with the service, trying again in a few seconds'});
 				self.displaySpinner(1000,false);
 			});
 		},10000);
