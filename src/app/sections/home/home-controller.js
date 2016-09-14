@@ -55,7 +55,7 @@ angular.module('notesweb')
 		});
 
 		$timeout(function(){
-			$scope.showIntro = false;
+			// $scope.showIntro = false;
 			$scope.$applyAsync();
 		},3000);
 
