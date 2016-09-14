@@ -97,9 +97,9 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 }
 
 //karaokeTakeOver
-#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 1;
+#karaokeTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 0;
   #rightBar{ right: 120px; }
-  &.karaokeMode{ animation: changeBG 1s ease-out forwards 1; animation-delay: 3.5s;
+  &.karaokeMode{ opacity: 1; animation: changeBG 1s ease-out forwards 1; animation-delay: 3.5s;
     #userProfile{
       p{ animation: changeColor 1s ease-out forwards 1; animation-delay: 3.5s; }
     }
