@@ -1,5 +1,5 @@
 angular.module('notesweb')
-	.controller('HomeController', ['$scope','$timeout','ProgrammingService', function($scope,$timeout,ProgrammingService) {
+	.controller('HomeController', ['$scope','$timeout','ProgrammingService','PusherService', function($scope,$timeout,ProgrammingService,PusherService) {
 		'use strict';
 
 		var self = this;
@@ -17,7 +17,7 @@ angular.module('notesweb')
 			lastMessageCommercial: false,
 			spinning: false,
 			microfonePopped: false,
-			showIntro:  true,
+			showIntro: true,
 			karaokeMode: false
 		});
 
@@ -35,16 +35,18 @@ angular.module('notesweb')
 
 		$timeout(function(){
 			ProgrammingService.now().then(function(data){
-				if(data!==false){
+				if(data===false){
 					if(!$scope.lastMessageCommercial){
 						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
 						$scope.lastMessageCommercial = true;
 					}
 				}else{
-					$scope.notifications.unshift({type: 'notification','text':''});
+					$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun'});
 					self.displaySpinner(1000,false);
 					$scope.lastMessageCommercial = false;
 					$scope.nowPlaying = data;
+
+					// send push to phone
 				}
 			},function(error){
 				$scope.notifications.unshift({type: 'notification','text':'Oops something went wrong, I will try again in a few seconds'});
@@ -52,6 +54,17 @@ angular.module('notesweb')
 			});
 		},10000);
 
+		PusherService.bind('karaoke', function(data) {
+			console.log('karaoke time');
+			$scope.karaokeMode = true;
+			$scope.$applyAsync();
+    });
+
+		PusherService.bind('score', function(data) {
+			console.log('score');
+			$scope.notifications.unshift({type: 'userScore',score: data.score, total: data.total, profilepicture: data.profilepicture});
+			$scope.$applyAsync();
+    });
 
 
 	}]);
