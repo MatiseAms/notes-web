@@ -64,6 +64,21 @@ angular.module('notesweb')
 				},1500);
 			});
 		};
+    self.lyrics = function(){
+      var linesTotal = $('ul.lyrics').find('li').length;
+      var lineTime = 2000;
+      var i = 0;
+      var pushLine = function () {
+        i++;
+        $('ul.lyrics').attr('data-line',i);
+        $('ul.lyrics li').removeClass('active');
+        $('ul.lyrics li').eq(i).addClass('active');
+        if(i > linesTotal){
+          $interval.cancel();
+        }
+      };
+      $interval(pushLine, lineTime);
+    };
 
 		angular.extend($scope,{
 			nowPlaying: {},
@@ -98,6 +113,7 @@ angular.module('notesweb')
 
 		PusherService.bind('karaoke', function(data) {
 			console.log('karaoke time');
+      self.lyrics();
 			$scope.player.name = data.name;
 			$scope.player.avatar = data.profilepicture;
 			$scope.karaokeMode = true;
@@ -109,24 +125,6 @@ angular.module('notesweb')
 			$scope.$applyAsync();
     });
 
-    self.lyrics = function(){
-      var linesTotal = $('ul.lyrics').find('li').length;
-      var lineTime = 2000;
-      var i = 0;
-      var pushLine = function () {
-        i++;
-        $('ul.lyrics').attr('data-line',i);
-        $('ul.lyrics li').removeClass('active');
-        $('ul.lyrics li').eq(i).addClass('active');
-        if(i > linesTotal){
-          $interval.cancel();
-        }
-      };
-      $interval(pushLine, lineTime);
-    };
-    setTimeout(function(){
-      self.lyrics();
-    },3000);
 
 
 	}]);
