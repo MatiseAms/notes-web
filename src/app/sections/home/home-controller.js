@@ -1,5 +1,5 @@
 angular.module('notesweb')
-	.controller('HomeController', ['$scope','$timeout','ProgrammingService','PusherService', function($scope,$timeout,ProgrammingService,PusherService) {
+	.controller('HomeController', ['$scope','$timeout','ProgrammingService','PusherService','SendPusherService', function($scope,$timeout,ProgrammingService,PusherService,SendPusherService) {
 		'use strict';
 
 		var self = this;
@@ -25,17 +25,17 @@ angular.module('notesweb')
 						$scope.lastMessageCommercial = false;
 						$scope.nowPlaying = data.data;
 
-						console.log($scope.nowPlaying);
-						if($scope.nowPlaying[10]){
-							console.log($scope.nowPlaying[10].lyrics.lyrics_body);
-						}
-
 						$timeout(function(){
 							$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun!'});
 							self.displaySpinner(1000,false);
 
+							var hasKaraoke = false;
+							if($scope.nowPlaying[10]&&$scope.nowPlaying[10].lyrics.lyrics_body){
+								hasKaraoke = true;
+								$scope.lyriclines = $scope.nowPlaying[10].lyrics.lyrics_lines;
+							}
 							// send push to phone
-
+							SendPusherService.newSong($scope.nowPlaying[7],$scope.nowPlaying[8],hasKaraoke);
 						},5000);
 						// check at the end of the song
 						var songTimeout = data.data[6]*1000;
@@ -72,7 +72,12 @@ angular.module('notesweb')
 			spinning: false,
 			microfonePopped: false,
 			showIntro: true,
-			karaokeMode: false
+			karaokeMode: false,
+			lyriclines: [],
+			player: {
+			 	name: '',
+				avatar: ''
+			}
 		});
 
 		$timeout(function(){
@@ -93,12 +98,13 @@ angular.module('notesweb')
 
 		PusherService.bind('karaoke', function(data) {
 			console.log('karaoke time');
+			$scope.player.name = data.name;
+			$scope.player.avatar = data.profilepicture;
 			$scope.karaokeMode = true;
 			$scope.$applyAsync();
     });
 
 		PusherService.bind('score', function(data) {
-			console.log('score');
 			$scope.notifications.unshift({type: 'userScore',score: data.score, total: data.total, profilepicture: data.profilepicture});
 			$scope.$applyAsync();
     });
