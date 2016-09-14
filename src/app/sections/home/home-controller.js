@@ -12,26 +12,33 @@ angular.module('notesweb')
 		};
 		self.checkSong  = function checkSong(){
 			self.displaySpinner(0,true);
+			console.log('checking for a song');
 			ProgrammingService.now().then(function(data){
-				if(data.error){
+				if(data.data.error){
 					if(!$scope.lastMessageCommercial){
 						$scope.notifications.unshift({type: 'notification','text':'Oh no commercials :(, need an awesome app or website? Visit www.matise.nl!'});
 						$scope.lastMessageCommercial = true;
 						$timeout(function(){self.checkSong();},500);
 					}
 				}else{
-					if($scope.nowPlaying!==data){
+					if($scope.nowPlaying!==data.data){
 						$scope.notifications.unshift({type: 'notification','text':'Found a song, open your app to start the fun'});
 						self.displaySpinner(1000,false);
 						$scope.lastMessageCommercial = false;
-						$scope.nowPlaying = data;
-
+						$scope.nowPlaying = data.data;
+						console.log($scope.nowPlaying);
 						// check at the end of the song
 						var songTimeout = (data.data[6]*1000)-2000;
 						console.log('checking song in '+data.data[6]+' sec, '+songTimeout+ 'ms');
-						// $timeout(function(){
-						// 	self.checkSong();
-						// },songTimeout);
+						if(songTimeout<0){
+							self.checkSong();
+						}else{
+							$timeout(function(){
+								$scope.karaokeMode = false;
+								$scope.$applyAsync();
+								self.checkSong();
+							},songTimeout);
+						}
 
 						// send push to phone
 
