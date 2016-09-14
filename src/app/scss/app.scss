@@ -29,6 +29,7 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
 //notificationCenter
 #notificationCenter{ height: 100%; width: calc(50% - 120px); right: 120px; top: 0px; position: absolute;
   #leftBar{ overflow: hidden; pfosition: absolute; right: 0px; top: 0px; height: 100%; width: calc(100% - 132px); padding-top: 30px; transition: .2s;
+    &.karaokeMode{ opacity: 0; }
     &.withMicrofone{ right: 132px; }
     notification{ height: 60px; margin: 15px 0px; float: right;
       .row{ margin: 10px 0px 0px; }
@@ -83,7 +84,7 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
  }
 }
 
-//karaokeTakeOver
+//introTakeOver
 #introTakeOver{ position: fixed; height: 100%; width: 100%; left: 0; top: 0; background-color: $emerald; z-index: 5; transition: .2s; opacity: 1;
   #rightBar{ right: 120px; }
   &.hideIt{ opacity: 0; }
@@ -117,13 +118,13 @@ h2{ font-size: 60px; line-height: 70px; margin: 0px 0px 40px; padding: 0px; }
   }
   .logoHolder{ background: url(../img/logo-fill.png) no-repeat center center; background-size: contain; transform: scale(1) }
   .spinner1{ display: none; }
-  .song{ width: 80%; height: 540px; position: fixed; left: 10%; border: 1px solid red; z-index: 7; top: 20%; opacity: 0; animation: showSong .5s ease forwards 1; animation-delay: 5s; overflow: hidden;
+  .song{ width: 80%; height: 540px; position: fixed; left: 10%; border: 1px solid red; z-index: 7; top: 20%; opacity: 0; animation: showSong 1s ease forwards 1; animation-delay: 4s; overflow: hidden;
     ul{ font-size: rem(50); line-height: rem(60); color: $white; padding-top: 240px; margin: 0px;
-      li{ white-space: nowrap; overflow: hidden; line-height: 60px; color: rgba($white, .75); position: relative; margin-right: 100%; display: inline-block; width: auto; transform-style: preserve-3d;
+      li{ text-shadow: 0px 0px 20px rgba($dark, .4); white-space: nowrap; overflow: hidden; line-height: 60px; color: rgba($white, .75); position: relative; margin-right: 100%; display: inline-block; width: auto; transform-style: preserve-3d;
         &.active{ color: rgba($white, 1);
-          &:before{ transform: translateX(0%); transition: 2s; }
+          &:before{ transform: translateX(0%); transition: 3s; }
         }
-        &:before{ z-index: -1; width: 0px; content: ''; height: 10px; top: 28px; background-color: rgba($emerald, 1); width: 100%; transform: translate(-100%); position: absolute; }
+        &:before{ z-index: -1; transition: $bezier 1s; width: 0px; content: ''; height: 5px; top: 28px; background-color: rgba($emerald, 1); width: 100%; transform: translate(-100%); position: absolute; }
       }
     }
   }
